@@ -1,7 +1,9 @@
 package com.xxx.forum.service;
 
+import com.xxx.forum.param.PageParam;
 import com.xxx.forum.pojo.Blog;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.xxx.forum.vo.PageResult;
 
 /**
  * <p>
@@ -13,4 +15,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface BlogService extends IService<Blog> {
 
+    PageResult selectBlogsByType(int id, PageParam pageParam);
 }

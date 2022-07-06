@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xxx.forum.mapper.BlogMapper">
+    <resultMap id="blogsByType" type="com.xxx.forum.vo.BlogVo">
 
-    <select id="getFullBlogById" resultType="com.xxx.forum.pojo.Blog">
+    </resultMap>
+
+    <select id="selectBlogsByType" resultType="com.xxx.forum.vo.BlogVo">
 
     </select>
+    <select id="selectBlogCountByType" resultType="java.lang.Integer"></select>
 </mapper>
