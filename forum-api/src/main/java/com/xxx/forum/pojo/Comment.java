@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
 import java.io.Serializable;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -16,13 +18,10 @@ import lombok.EqualsAndHashCode;
  * @since 2022-05-31
  */
 @Data
-@EqualsAndHashCode(callSuper = false)
-public class Comment implements Serializable {
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Comment{
 
-    private static final long serialVersionUID=1L;
-
-    @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
+    private Integer coId;
 
     /**
      * 评论者姓名
@@ -47,7 +46,7 @@ public class Comment implements Serializable {
     /**
      * 博客id
      */
-    private Integer blogId;
+    private Integer blId;
 
     /**
      * 父节点
@@ -58,6 +57,7 @@ public class Comment implements Serializable {
      * 创建时间
      */
     private LocalDateTime createTime;
+
 
 
 }

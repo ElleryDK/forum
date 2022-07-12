@@ -17,67 +17,17 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class Blog implements Serializable {
-
-    private static final long serialVersionUID=1L;
-
-    @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
-
-    /**
-     * 标题
-     */
+public class Blog{
+    private Integer blId;
     private String title;
-
-    /**
-     * 内容
-     */
     private String content;
-
-    /**
-     * 简介
-     */
     private String outline;
-
-    /**
-     * 是否置顶
-     */
-    private Boolean weight;
-
-    /**
-     * 是否发布
-     */
-    private Boolean published;
-
-    /**
-     * 访问量
-     */
+    private Integer recommend;
+    private Integer commentable;
+    private Integer published;
     private Integer views;
-
-    /**
-     * 赞赏量
-     */
-    private Integer likes;
-
-    /**
-     * 类型id
-     */
     private Integer tyId;
-
-    /**
-     * 状态（1.启用 2.禁用）
-     */
-    private Boolean status;
-
-    /**
-     * 创建时间
-     */
     private LocalDateTime createTime;
-
-    /**
-     * 更新时间
-     */
     private LocalDateTime updateTime;
-
-
+    private Integer auId;
 }
