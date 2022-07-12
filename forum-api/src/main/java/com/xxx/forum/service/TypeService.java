@@ -1,7 +1,10 @@
 package com.xxx.forum.service;
 
+import com.xxx.forum.pojo.Tag;
 import com.xxx.forum.pojo.Type;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,11 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface TypeService extends IService<Type> {
 
+    List<Type> getAllTypes();
+
+    Type updateType(int id, String name);
+
+    Type addType(String name);
+
+    Type deleteType(int id);
 }

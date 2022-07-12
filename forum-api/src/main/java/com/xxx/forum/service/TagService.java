@@ -3,6 +3,8 @@ package com.xxx.forum.service;
 import com.xxx.forum.pojo.Tag;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
  * <p>
  * 标签表 服务类
@@ -13,4 +15,11 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface TagService extends IService<Tag> {
 
+    List<Tag> getAllTags();
+
+    Tag updateTag(int id,String name);
+
+    Tag addTag(String name);
+
+    Tag deleteTag(int id);
 }
