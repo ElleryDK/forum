@@ -25,7 +25,14 @@ public class BlogController {
     @GetMapping("tag")
     public Result getTagBlogs(@RequestParam("id") int id,@RequestParam("page") int page){
         int start = (page-1)*10;
-        List<BlogVo> blogVos = blogService.selectBlogsByTag(id,start);
+        List<BlogVo> blogVos = blogService.getTagBlogs(id,start);
+        return Result.success(blogVos);
+    }
+
+    @GetMapping("type")
+    public Result getTypeBlogs(@RequestParam("id") int id,@RequestParam("page") int page){
+        int start = (page-1)*10;
+        List<BlogVo> blogVos = blogService.getTypeBlogs(id,start);
         return Result.success(blogVos);
     }
 

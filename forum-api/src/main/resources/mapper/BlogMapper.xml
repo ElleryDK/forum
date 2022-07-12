@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--MyBatis配置文件-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xxx.forum.mapper.BlogMapper">
+    <resultMap id="blog" type="com.xxx.forum.vo.BlogVo">
+<!--        private Integer blId;-->
+        <id column="bl_id" property="blId"></id>
+<!--        private String title;-->
+        <result column="title" property="title"></result>
+<!--        private String content;-->
+        <result column="content" property="content"></result>
+<!--        private String outline;-->
+        <result column="outline" property="outline"></result>
+<!--        private Integer recommend;-->
+        <result column="recommend" property="recommend"></result>
+<!--        private Integer commentable;-->
+        <result column="commentable" property="commentable"></result>
+<!--        private Integer published;-->
+        <result column="published" property="published"></result>
+<!--        private Integer views;-->
+        <result column="views" property="views"></result>
+<!--        private LocalDateTime createTime;-->
+        <result column="createTime" property="createTime"></result>
+<!--        private LocalDateTime updateTime;-->
+        <result column="updateTime" property="updateTime"></result>
+        <association column="ty_id" property="type">
+            <id column="ty_id" property="tyId"></id>
+            <result column="name" property="name"></result>
+        </association>
+        <association column="au_id" property="author">
+            <id column="us_id" property="auId"></id>
+            <result column="name" property="name"></result>
+        </association>
+<!--        private List<Tag> tags;-->
+    </resultMap>
+    <select id="getTagBlogs" resultMap="blog"></select>
+    <select id="getTypeBlogs" resultMap="blog"></select>
+</mapper>

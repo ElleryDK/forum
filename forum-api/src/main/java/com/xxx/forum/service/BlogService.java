@@ -3,6 +3,7 @@ package com.xxx.forum.service;
 import com.xxx.forum.pojo.Blog;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.xxx.forum.vo.BlogVo;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -17,5 +18,7 @@ import java.util.List;
 public interface BlogService extends IService<Blog> {
 
 
-    List<BlogVo> selectBlogsByTag(int id, int start);
+
+    List<BlogVo> getTypeBlogs(@Param("id") int id,@Param("start") int start);
+    List<BlogVo> getTagBlogs(@Param("id") int id,@Param("start") int start);
 }

@@ -1,10 +1,7 @@
 package com.xxx.forum.vo;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import com.xxx.forum.pojo.Author;
 import com.xxx.forum.pojo.Tag;
 import com.xxx.forum.pojo.Type;

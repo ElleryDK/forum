@@ -22,9 +22,13 @@ import java.util.List;
 public class BlogServiceImpl extends ServiceImpl<BlogMapper, Blog> implements BlogService {
     @Autowired
     private BlogMapper blogMapper;
+    @Override
+    public List<BlogVo> getTypeBlogs(int id, int start) {
+        return null;
+    }
 
     @Override
-    public List<BlogVo> selectBlogsByTag(int id, int start) {
+    public List<BlogVo> getTagBlogs(int id, int start) {
         return null;
     }
 }

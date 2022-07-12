@@ -18,8 +18,7 @@ import java.util.List;
  * @since 2022-05-31
  */
 public interface BlogMapper extends BaseMapper<Blog> {
+    List<BlogVo> getTagBlogs(int id,int start);
+    List<BlogVo> getTypeBlogs(int id,int start);
 
-
-
-    int selectBlogCountByType(@Param("id") int id);
 }
