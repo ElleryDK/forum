@@ -13,7 +13,7 @@ import java.util.List;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BlogVo {
-    private Integer blId;
+    private Integer id;
     private String title;
     private String content;
     private String outline;

@@ -20,8 +20,8 @@ import lombok.EqualsAndHashCode;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Comment{
-
-    private Integer coId;
+    @TableId(value = "co_id")
+    private Integer id;
 
     /**
      * 评论者姓名

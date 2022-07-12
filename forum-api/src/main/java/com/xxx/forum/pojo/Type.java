@@ -19,9 +19,9 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Type implements Serializable {
-
-    private Integer tyId;
+public class Type{
+    @TableId(value = "ty_id")
+    private Integer id;
 
     /**
      * 类型名

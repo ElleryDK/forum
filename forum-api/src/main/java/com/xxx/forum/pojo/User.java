@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
 import java.io.Serializable;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -16,9 +18,9 @@ import lombok.EqualsAndHashCode;
  * @since 2022-05-31
  */
 @Data
-@EqualsAndHashCode(callSuper = false)
-public class User implements Serializable {
-
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class User{
+    @TableId(value = "us_id")
     private Integer id;
 
     /**

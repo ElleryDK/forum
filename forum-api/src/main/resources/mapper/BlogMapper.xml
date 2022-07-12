@@ -4,7 +4,7 @@
 <mapper namespace="com.xxx.forum.mapper.BlogMapper">
     <resultMap id="blog" type="com.xxx.forum.vo.BlogVo">
 <!--        private Integer blId;-->
-        <id column="bl_id" property="blId"></id>
+        <id column="bl_id" property="id"></id>
 <!--        private String title;-->
         <result column="title" property="title"></result>
 <!--        private String content;-->
@@ -33,7 +33,8 @@
         </association>
 <!--        private List<Tag> tags;-->
         <collection property="tags" ofType="com.xxx.forum.pojo.Tag">
-
+            <result column="ta_id" property="taId"></result>
+            <result column="name" property="name"></result>
         </collection>
     </resultMap>
     <select id="getType" parameterType="int" resultType="com.xxx.forum.pojo.Type">
@@ -42,6 +43,14 @@
     <select id="getAuthor" parameterType="int" resultType="com.xxx.forum.pojo.Author">
         select us_id as auId,name from sys_user where us_id = #{id}
     </select>
-    <select id="getTagBlogs" resultMap="blog"></select>
-    <select id="getTypeBlogs" resultMap="blog"></select>
+    <select id="getTags" parameterType="int" resultType="collection">
+        select t_tag.ta_id,t_tag.name from t_tag join t_blog_tag on t_tag.bl_id = t_blog_tag.bl_id where bl_id = #{id}
+    </select>
+    <select id="getTagBlogs" resultMap="blog">
+        select bl_id,title,outline,recommend,views,ty_id,au_id,create_time,update_time from t_blog  where bl_id in
+        (select t_blog_tag.bl_id from t_blog_tag join t_tag on t_blog_tag.ta_id = t_tag.ta_id where t_blog_tag.ta_id = #{id}) limit start,10
+    </select>
+    <select id="getTypeBlogs" resultMap="blog">
+        select bl_id,title,outline,recommend,views,ty_id,au_id,create_time,update_time from t_blog  where ty_id ={id} limit #{start},10
+    </select>
 </mapper>

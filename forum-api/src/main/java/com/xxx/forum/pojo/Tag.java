@@ -19,9 +19,9 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Tag implements Serializable {
-
-    private Integer taId;
+public class Tag{
+    @TableId(value = "ta_id")
+    private Integer id;
 
     /**
      * 标签名称
