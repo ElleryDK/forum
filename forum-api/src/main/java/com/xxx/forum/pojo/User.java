@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -18,11 +19,10 @@ import lombok.EqualsAndHashCode;
  * @since 2022-05-31
  */
 @Data
-@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class User{
     @TableId(value = "us_id")
     private Integer id;
-
     /**
      * 姓名
      */

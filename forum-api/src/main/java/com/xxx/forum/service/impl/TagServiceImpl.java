@@ -34,7 +34,7 @@ public class TagServiceImpl extends ServiceImpl<TagMapper, Tag> implements TagSe
     @Override
     public Tag updateTag(int id,String name) {
         Tag tag = new Tag();
-        tag.setId(id);
+        tag.setTaId(id);
         tag.setName(name);
         tag.setUpdateTime(LocalDateTime.now());
         tagMapper.updateById(tag);

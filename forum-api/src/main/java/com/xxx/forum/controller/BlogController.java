@@ -23,7 +23,7 @@ public class BlogController {
     @Autowired
     private BlogService blogService;
     @GetMapping("tag")
-    public Result getTagBlogs(@RequestParam("id") int id,@RequestParam("page") int page){
+    public Result getTagBlogs(@RequestParam("id") Integer id,@RequestParam("page") Integer page){
         int start = (page-1)*10;
         List<BlogVo> blogVos = blogService.getTagBlogs(id,start);
         return Result.success(blogVos);

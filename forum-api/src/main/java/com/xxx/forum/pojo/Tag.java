@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 /**
@@ -15,11 +16,10 @@ import lombok.Data;
  * @since 2022-05-31
  */
 @Data
-@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Tag{
     @TableId(value = "ta_id")
-    private Integer id;
-
+    private Integer taId;
     /**
      * 标签名称
      */

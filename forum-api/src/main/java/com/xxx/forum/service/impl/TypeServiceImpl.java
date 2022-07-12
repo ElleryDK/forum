@@ -34,7 +34,7 @@ public class TypeServiceImpl extends ServiceImpl<TypeMapper, Type> implements Ty
     @Override
     public Type updateType(int id, String name) {
         Type type = new Type();
-        type.setId(id);
+        type.setTyId(id);
         type.setName(name);
         type.setUpdateTime(LocalDateTime.now());
         typeMapper.updateById(type);
