@@ -23,16 +23,25 @@
         <result column="createTime" property="createTime"></result>
 <!--        private LocalDateTime updateTime;-->
         <result column="updateTime" property="updateTime"></result>
-        <association column="ty_id" property="type">
+        <association column="ty_id" property="type" select="getType">
             <id column="ty_id" property="tyId"></id>
             <result column="name" property="name"></result>
         </association>
-        <association column="au_id" property="author">
+        <association column="au_id" property="author" select="getAuthor">
             <id column="us_id" property="auId"></id>
             <result column="name" property="name"></result>
         </association>
 <!--        private List<Tag> tags;-->
+        <collection property="tags" ofType="com.xxx.forum.pojo.Tag">
+
+        </collection>
     </resultMap>
+    <select id="getType" parameterType="int" resultType="com.xxx.forum.pojo.Type">
+        select ty_id,name from t_type where ty_id = #{id}
+    </select>
+    <select id="getAuthor" parameterType="int" resultType="com.xxx.forum.pojo.Author">
+        select us_id as auId,name from sys_user where us_id = #{id}
+    </select>
     <select id="getTagBlogs" resultMap="blog"></select>
     <select id="getTypeBlogs" resultMap="blog"></select>
 </mapper>
