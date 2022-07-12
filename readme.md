@@ -5,7 +5,3 @@
 2. MyBatis-Plus
 3. Redis
 4. MQ
-
-###模块
-1. sql-generator 逆向工程
-2. forum-api
