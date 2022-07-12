@@ -1,5 +1,6 @@
 package com.xxx.forum.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.xxx.forum.pojo.Blog;
 import com.xxx.forum.mapper.BlogMapper;
 import com.xxx.forum.service.BlogService;
@@ -24,11 +25,25 @@ public class BlogServiceImpl extends ServiceImpl<BlogMapper, Blog> implements Bl
     private BlogMapper blogMapper;
     @Override
     public List<BlogVo> getTypeBlogs(int id, int start) {
-        return null;
+        List<BlogVo> blogVos = blogMapper.getTypeBlogs(id,start);
+        return blogVos;
     }
 
     @Override
     public List<BlogVo> getTagBlogs(int id, int start) {
+        List<BlogVo> blogVos = blogMapper.getTagBlogs(id,start);
+        return blogVos;
+    }
+
+    @Override
+    public List<BlogVo> getHotBlogs() {
+        List<BlogVo> blogVos = blogMapper.getHotBlogs();
         return null;
+    }
+
+    @Override
+    public BlogVo viewBlog(int id) {
+        BlogVo blogVo = blogMapper.viewBlog(id);
+        return blogVo;
     }
 }

@@ -21,4 +21,8 @@ public interface BlogService extends IService<Blog> {
 
     List<BlogVo> getTypeBlogs(@Param("id") int id,@Param("start") int start);
     List<BlogVo> getTagBlogs(@Param("id") int id,@Param("start") int start);
+
+    List<BlogVo> getHotBlogs();
+
+    BlogVo viewBlog(int id);
 }

@@ -35,6 +35,16 @@ public class BlogController {
         List<BlogVo> blogVos = blogService.getTypeBlogs(id,start);
         return Result.success(blogVos);
     }
+    @GetMapping("hot")
+    public Result getHotBlogs(){
+        List<BlogVo> blogVos = blogService.getHotBlogs();
+        return Result.success(blogVos);
+    }
+    @GetMapping("view")
+    public Result viewBlog(@RequestParam("id") int id){
+        BlogVo blogVo = blogService.viewBlog(id);
+        return Result.success(blogVo);
+    }
 
 }
 

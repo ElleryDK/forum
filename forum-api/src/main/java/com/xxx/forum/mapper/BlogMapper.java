@@ -20,5 +20,7 @@ import java.util.List;
 public interface BlogMapper extends BaseMapper<Blog> {
     List<BlogVo> getTagBlogs(int id,int start);
     List<BlogVo> getTypeBlogs(int id,int start);
+    List<BlogVo> getHotBlogs();
 
+    BlogVo viewBlog(int id);
 }
