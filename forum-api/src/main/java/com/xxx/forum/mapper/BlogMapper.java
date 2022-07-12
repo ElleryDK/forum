@@ -19,7 +19,7 @@ import java.util.List;
  */
 public interface BlogMapper extends BaseMapper<Blog> {
 
-    List<BlogVo> selectBlogsByType(@Param("id") int id, @Param("start") int start,@Param("pageSize") int pageSize);
+
 
     int selectBlogCountByType(@Param("id") int id);
 }

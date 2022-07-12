@@ -1,16 +1,13 @@
 package com.xxx.forum.controller;
 
 
-import com.xxx.forum.mapper.BlogMapper;
-import com.xxx.forum.param.PageParam;
-import com.xxx.forum.pojo.Blog;
 import com.xxx.forum.service.BlogService;
-import com.xxx.forum.vo.PageResult;
+import com.xxx.forum.vo.BlogVo;
 import com.xxx.forum.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import org.springframework.stereotype.Controller;
+import java.util.List;
 
 /**
  * <p>
@@ -21,15 +18,15 @@ import org.springframework.stereotype.Controller;
  * @since 2022-05-31
  */
 @RestController
-@RequestMapping("/blog")
+@RequestMapping("blog")
 public class BlogController {
     @Autowired
     private BlogService blogService;
-    @GetMapping("type/{id}")
-    public Result selectBlogByType(@PathVariable("id") int id,@RequestParam("currentPage")int currentPage,@RequestParam("pageSize") int pageSize){
-        PageParam pageParam = new PageParam(currentPage,pageSize);
-        PageResult pageResult = blogService.selectBlogsByType(id,pageParam);
-        return Result.success(pageResult);
+    @GetMapping("tag")
+    public Result getTagBlogs(@RequestParam("id") int id,@RequestParam("page") int page){
+        int start = (page-1)*10;
+        List<BlogVo> blogVos = blogService.selectBlogsByTag(id,start);
+        return Result.success(blogVos);
     }
 
 }

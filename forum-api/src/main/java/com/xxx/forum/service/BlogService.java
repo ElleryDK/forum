@@ -1,9 +1,10 @@
 package com.xxx.forum.service;
 
-import com.xxx.forum.param.PageParam;
 import com.xxx.forum.pojo.Blog;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.xxx.forum.vo.PageResult;
+import com.xxx.forum.vo.BlogVo;
+
+import java.util.List;
 
 /**
  * <p>
@@ -15,5 +16,6 @@ import com.xxx.forum.vo.PageResult;
  */
 public interface BlogService extends IService<Blog> {
 
-    PageResult selectBlogsByType(int id, PageParam pageParam);
+
+    List<BlogVo> selectBlogsByTag(int id, int start);
 }
