@@ -2,6 +2,10 @@ package com.xxx.forum.mapper;
 
 import com.xxx.forum.pojo.Tag;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
  * <p>
@@ -12,5 +16,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @since 2022-05-31
  */
 public interface TagMapper extends BaseMapper<Tag> {
-
+    @Select("select * from t_tag where ta_id = #{id}")
+    Tag selectTag(int id);
+    void deleteBlogTags(List<Integer> id);
+    void insertBlogTags(@Param("blId")Integer blId,@Param("tags") List<Integer> tags);
 }

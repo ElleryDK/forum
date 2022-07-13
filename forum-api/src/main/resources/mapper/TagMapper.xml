@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--MyBatis配置文件-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xxx.forum.mapper.TagMapper">
+    <insert id="insertBlogTags" >
+        insert into t_blog_tag(bl_id,ta_id) values
+        <foreach collection="tags" item="tag" separator=",">
+            (#{blId},#{tag})
+        </foreach>
+    </insert>
+
+    <delete id="deleteBlogTags">
+        delete * from t_blog_tag where bl_id = #{id}
+    </delete>
+</mapper>
