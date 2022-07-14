@@ -21,4 +21,9 @@ public class TestTagMapper {
         List<Integer> tags = Arrays.asList(1,2,3);
         tagMapper.insertBlogTags(blId,tags);
     }
+    @Test
+    public void testGetAllTags(){
+        List<Tag> tags = tagMapper.getAllTags();
+        tags.forEach(System.out::println);
+    }
 }

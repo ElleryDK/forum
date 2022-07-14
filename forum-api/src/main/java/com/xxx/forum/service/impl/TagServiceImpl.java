@@ -20,24 +20,26 @@ import java.util.List;
  * @since 2022-05-31
  */
 @Service
-public class TagServiceImpl extends ServiceImpl<TagMapper, Tag> implements TagService {
+public class TagServiceImpl implements TagService {
     @Autowired
     private TagMapper tagMapper;
     @Override
     public List<Tag> getAllTags() {
-        LambdaQueryWrapper<Tag> wrapper = new LambdaQueryWrapper<>();
-        wrapper.orderByDesc(Tag::getUpdateTime);
-        List<Tag> tags = tagMapper.selectList(wrapper);
+        List<Tag> tags = tagMapper.getAllTags();
         return tags;
     }
 
     @Override
     public Tag updateTag(int id,String name) {
+        Tag oldTag = tagMapper.getTagById(id);
+        if(null == oldTag){
+            return null;
+        }
         Tag tag = new Tag();
         tag.setTaId(id);
         tag.setName(name);
-        tag.setUpdateTime(LocalDateTime.now());
-        tagMapper.updateById(tag);
+        tag.setCreateTime(LocalDateTime.now());
+        tagMapper.updateTag(tag);
         return tag;
     }
 
@@ -47,14 +49,18 @@ public class TagServiceImpl extends ServiceImpl<TagMapper, Tag> implements TagSe
         tag.setName(name);
         tag.setCreateTime(LocalDateTime.now());
         tag.setUpdateTime(LocalDateTime.now());
-        tagMapper.insert(tag);
+        int id = tagMapper.addTag(tag);
+        tag.setTaId(id);
         return tag;
     }
 
     @Override
     public Tag deleteTag(int id) {
-        Tag tag = tagMapper.selectById(id);
-        tagMapper.deleteById(id);
+        Tag tag = tagMapper.getTagById(id);
+        if(null == tag){
+            return null;
+        }
+        tagMapper.deleteTagById(id);
         return tag;
     }
 }

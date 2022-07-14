@@ -20,14 +20,12 @@ import java.util.List;
  * @since 2022-05-31
  */
 @Service
-public class TypeServiceImpl extends ServiceImpl<TypeMapper, Type> implements TypeService {
+public class TypeServiceImpl implements TypeService {
     @Autowired
     private TypeMapper typeMapper;
     @Override
     public List<Type> getAllTypes() {
-        LambdaQueryWrapper<Type> wrapper = new LambdaQueryWrapper<>();
-        wrapper.orderByDesc(Type::getUpdateTime);
-        List<Type> types = typeMapper.selectList(wrapper);
+        List<Type> types = typeMapper.getAllTypes();
         return types;
     }
 
@@ -37,7 +35,7 @@ public class TypeServiceImpl extends ServiceImpl<TypeMapper, Type> implements Ty
         type.setTyId(id);
         type.setName(name);
         type.setUpdateTime(LocalDateTime.now());
-        typeMapper.updateById(type);
+        typeMapper.updateType(type);
         return type;
     }
 
@@ -47,14 +45,17 @@ public class TypeServiceImpl extends ServiceImpl<TypeMapper, Type> implements Ty
         type.setName(name);
         type.setCreateTime(LocalDateTime.now());
         type.setUpdateTime(LocalDateTime.now());
-        typeMapper.insert(type);
+        int id = typeMapper.addType(type);
         return type;
     }
 
     @Override
     public Type deleteType(int id) {
-        Type type = typeMapper.selectById(id);
-        typeMapper.deleteById(id);
+        Type type = typeMapper.getTypeById(id);
+        if(null==type){
+            return null;
+        }
+        typeMapper.deleteTypeById(id);
         return type;
     }
 }

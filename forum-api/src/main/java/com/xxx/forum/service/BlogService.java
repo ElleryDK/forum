@@ -15,7 +15,7 @@ import java.util.List;
  * @author ellery
  * @since 2022-05-31
  */
-public interface BlogService extends IService<Blog> {
+public interface BlogService {
 
 
 
@@ -25,4 +25,8 @@ public interface BlogService extends IService<Blog> {
     List<BlogVo> getHotBlogs();
 
     BlogVo viewBlog(int id);
+
+    int addBlog(Blog blog);
+
+    void updateBlog(Blog blog);
 }

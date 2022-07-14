@@ -20,7 +20,7 @@ import java.util.List;
  * @since 2022-05-31
  */
 @Service
-public class BlogServiceImpl extends ServiceImpl<BlogMapper, Blog> implements BlogService {
+public class BlogServiceImpl implements BlogService {
     @Autowired
     private BlogMapper blogMapper;
     @Override
@@ -45,5 +45,15 @@ public class BlogServiceImpl extends ServiceImpl<BlogMapper, Blog> implements Bl
     public BlogVo viewBlog(int id) {
         BlogVo blogVo = blogMapper.viewBlog(id);
         return blogVo;
+    }
+
+    @Override
+    public int addBlog(Blog blog) {
+        return 0;
+    }
+
+    @Override
+    public void updateBlog(Blog blog) {
+
     }
 }

@@ -15,9 +15,19 @@ import java.util.List;
  * @author ellery
  * @since 2022-05-31
  */
-public interface TagMapper extends BaseMapper<Tag> {
+public interface TagMapper {
     @Select("select * from t_tag where ta_id = #{id}")
     Tag selectTag(int id);
     void deleteBlogTags(List<Integer> id);
     void insertBlogTags(@Param("blId")Integer blId,@Param("tags") List<Integer> tags);
+
+    List<Tag> getAllTags();
+
+    Tag getTagById(int id);
+
+    void updateTag(Tag tag);
+
+    int addTag(Tag tag);
+
+    void deleteTagById(int id);
 }

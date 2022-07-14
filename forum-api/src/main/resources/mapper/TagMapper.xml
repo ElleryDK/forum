@@ -8,8 +8,26 @@
             (#{blId},#{tag})
         </foreach>
     </insert>
+    <insert id="addTag" parameterType="com.xxx.forum.pojo.Tag">
+        insert into t_tag values(null,#{name},#{createTime},#{updateTime})
+        <selectKey keyProperty="taId" order="AFTER" resultType="int">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+    <update id="updateTag">
+        update t_tag set `name` = #{name},`updateTime` = #{updateTime}
+    </update>
 
     <delete id="deleteBlogTags">
         delete * from t_blog_tag where bl_id = #{id}
     </delete>
+    <delete id="deleteTagById">
+        delete * from t_tag where ta_id = #{id}
+    </delete>
+    <select id="getAllTags" resultType="com.xxx.forum.pojo.Tag">
+        select t_tag.ta_id ,t_tag.name from t_tag join t_blog_tag on t_tag.ta_id = t_blog_tag.ta_id group by ta_id order by count(*) desc
+    </select>
+    <select id="getTagById" resultType="com.xxx.forum.pojo.Tag">
+        select * from t_tag ta_id = #{id}
+    </select>
 </mapper>

@@ -14,7 +14,7 @@ import java.util.List;
  * @author ellery
  * @since 2022-05-31
  */
-public interface TypeService extends IService<Type> {
+public interface TypeService {
 
     List<Type> getAllTypes();
 

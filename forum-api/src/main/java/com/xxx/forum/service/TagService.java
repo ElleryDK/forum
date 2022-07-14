@@ -13,7 +13,7 @@ import java.util.List;
  * @author ellery
  * @since 2022-05-31
  */
-public interface TagService extends IService<Tag> {
+public interface TagService{
 
     List<Tag> getAllTags();
 

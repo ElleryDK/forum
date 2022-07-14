@@ -7,7 +7,7 @@ spring:
 #  redis:
 #    host: localhost
 #    port: 6379
-mybatis-plus:
+mybatis:
   mapper-locations: classpath:mapper/*.xml
   typeAliasesPackage: com.xxx.forum.pojo
   configuration:

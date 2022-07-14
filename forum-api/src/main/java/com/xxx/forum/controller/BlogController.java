@@ -1,7 +1,7 @@
 package com.xxx.forum.controller;
 
 
-import com.xxx.forum.param.BlogParam;
+import com.xxx.forum.pojo.Blog;
 import com.xxx.forum.service.BlogService;
 import com.xxx.forum.vo.BlogVo;
 import com.xxx.forum.vo.Result;
@@ -47,14 +47,16 @@ public class BlogController {
         return Result.success(blogVo);
     }
     @PostMapping("add")
-    public Result addBlog(@RequestBody BlogParam blogParam){
-
-        return Result.success(null);
+    public Result addBlog(@RequestBody Blog blog){
+        int id = blogService.addBlog(blog);
+        return Result.success(blog);
     }
     @PostMapping("update")
-    public Result updateBlog(@RequestBody BlogParam blogParam){
-        return null;
+    public Result updateBlog(@RequestBody Blog blog){
+        blogService.updateBlog(blog);
+        return Result.success(blog);
     }
+
 
 }
 
