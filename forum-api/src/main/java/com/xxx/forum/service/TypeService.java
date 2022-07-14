@@ -1,8 +1,6 @@
 package com.xxx.forum.service;
 
-import com.xxx.forum.pojo.Tag;
 import com.xxx.forum.pojo.Type;
-import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
 

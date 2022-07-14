@@ -1,7 +1,5 @@
 package com.xxx.forum.service;
 
-import com.xxx.forum.pojo.Comment;
-import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * <p>

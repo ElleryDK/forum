@@ -1,9 +1,6 @@
 package com.xxx.forum.service.impl;
 
-import com.xxx.forum.pojo.Comment;
-import com.xxx.forum.mapper.CommentMapper;
 import com.xxx.forum.service.CommentService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,6 +12,6 @@ import org.springframework.stereotype.Service;
  * @since 2022-05-31
  */
 @Service
-public class CommentServiceImpl  implements CommentService {
+public class CommentServiceImpl implements CommentService {
 
 }

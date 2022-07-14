@@ -1,7 +1,6 @@
 package com.xxx.forum.service;
 
 import com.xxx.forum.pojo.Blog;
-import com.baomidou.mybatisplus.extension.service.IService;
 import com.xxx.forum.vo.BlogVo;
 import org.apache.ibatis.annotations.Param;
 

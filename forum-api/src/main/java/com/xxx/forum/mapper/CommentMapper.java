@@ -1,7 +1,6 @@
 package com.xxx.forum.mapper;
 
-import com.xxx.forum.pojo.Comment;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
 
 /**
  * <p>

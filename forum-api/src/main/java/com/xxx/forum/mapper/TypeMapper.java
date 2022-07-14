@@ -1,8 +1,6 @@
 package com.xxx.forum.mapper;
 
 import com.xxx.forum.pojo.Type;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 

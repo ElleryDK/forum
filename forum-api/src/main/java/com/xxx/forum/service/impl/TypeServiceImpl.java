@@ -1,10 +1,9 @@
 package com.xxx.forum.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+
 import com.xxx.forum.pojo.Type;
 import com.xxx.forum.mapper.TypeMapper;
 import com.xxx.forum.service.TypeService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
